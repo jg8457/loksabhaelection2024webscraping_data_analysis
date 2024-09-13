@@ -1,6 +1,5 @@
 import pandas as pd
 
-# Define a dictionary mapping constituencies to states
 constituency_to_state = {
 'AJMER': 'Rajasthan',
     'ALWAR': 'Rajasthan',
@@ -630,14 +629,11 @@ constituency_to_state = {
     'Zahirabad': 'Telangana'
 }
 
-# Path to your CSV file
-file_path = 'lok_sabha_election_results_2024.csv'  # Update with your actual file path
 
-# Load the CSV file into a DataFrame
+file_path = 'lok_sabha_election_results_2024.csv'
+
 df = pd.read_csv(file_path)
-
-# Add a new column 'State' based on the constituency-to-state mapping
 df['State'] = df['Constituency'].map(constituency_to_state)
 
-# Save the updated DataFrame back to a new CSV file
+
 df.to_csv('updated_dataset.csv', index=False)
